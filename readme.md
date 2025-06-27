@@ -1,8 +1,8 @@
 <div id="top">
-
 <!-- HEADER STYLE: CLASSIC -->
+
 <div align="center">
-# IMAGEVIEWER
+#IMAGEVIEWER
 
 <em></em>
 
@@ -39,7 +39,34 @@
 
 ## Overview
 
+**IMAGEVIEWER** 是一款轻量级图像查看工具，专为精确图像分析与像素级查看而设计。与普通看图软件不同，IMAGEVIEWER 最大的特色是支持将图像**无限放大直至每个像素方格清晰可见**，并能显示每个像素的精确数值，适用于图像处理、视觉算法开发、像素艺术等领域的用户。
 
+本工具支持多种图像格式及像素模式，包括：
+
+- **灰度图（Grayscale）**
+- **RGB 彩色图**
+- **RGBA 带透明通道图**
+
+此外，还包含一系列增强视觉分析体验的特色功能：
+
+1. **链接视图（Linked View）**：在切换同尺寸图像时，自动保持视图位置和缩放比例，便于对比调试。
+2. **灰度图最大对比度显示**：动态拉伸灰度范围，增强细节可视性，适合暗部或高光信息观察。
+3. **单通道伪彩色显示**：对灰度或单通道图像应用伪彩色渲染，提高特征辨识度。
+4. ……
+
+#### 图片显示
+
+<div align="center">
+  <img src="readme.assets/image-20250627155853815.png" alt="Sample Image 1" width="100%" style="display: inline-block; margin-right: 2%;">
+  <img src="readme.assets/image-20250627155738218.png" alt="Sample Image 2" width="100%" style="display: inline-block;">
+</div>
+
+#### 链接视图（linked view）
+
+<div align="center">
+  <img src="readme.assets/image-20250627160346883.png" alt="Sample Image 1" width="45%" style="display: inline-block; margin-right: 2%;">
+  <img src="readme.assets/image-20250627160404116.png" alt="Sample Image 2" width="45%" style="display: inline-block;">
+</div>
 
 ---
 
@@ -545,7 +572,7 @@ echo 'INSERT-TEST-COMMAND-HERE'
 1. **Fork the Repository**: Start by forking the project repository to your LOCAL account.
 2. **Clone Locally**: Clone the forked repository to your local machine using a git client.
    ```sh
-   git clone D:\code\ImageViewer\ImageViewer
+   git clone https://github.com/XanHiaoo/ImageViewer.git
    ```
 3. **Create a New Branch**: Always work on a new branch, giving it a descriptive name.
    ```sh
@@ -564,15 +591,6 @@ echo 'INSERT-TEST-COMMAND-HERE'
 8. **Review**: Once your PR is reviewed and approved, it will be merged into the main branch. Congratulations on your contribution!
 </details>
 
-<details closed>
-<summary>Contributor Graph</summary>
-<br>
-<p align="left">
-   <a href="https://LOCAL{/ImageViewer/ImageViewer/}graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=ImageViewer/ImageViewer">
-   </a>
-</p>
-</details>
 
 ---
 
@@ -587,7 +605,6 @@ Imageviewer is protected under the [LICENSE](https://choosealicense.com/licenses
 - Credit `contributors`, `inspiration`, `references`, etc.
 
 <div align="right">
-
 [![][back-to-top]](#top)
 
 </div>
