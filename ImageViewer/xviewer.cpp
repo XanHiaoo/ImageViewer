@@ -22,31 +22,35 @@ constexpr int LISTWIDGET_HEIGHT = 100;
 
 cv::Mat QImage2Mat(const QImage& image)
 {
-    QString format = image.format();
-    switch (image.format()) {
-    case QImage::Format_ARGB32:
-    case QImage::Format_ARGB32_Premultiplied: {
-        cv::Mat mat(image.height(), image.width(), CV_8UC4, const_cast<uchar*>(image.bits()), image.bytesPerLine());
-        return mat.clone(); // Clone to ensure proper memory management
-    }
-    case QImage::Format_RGB32: {
-        cv::Mat mat(image.height(), image.width(), CV_8UC4, const_cast<uchar*>(image.bits()), image.bytesPerLine());
-        cv::Mat matBGR;
-        cv::cvtColor(mat, matBGR, cv::COLOR_BGRA2BGR);
-        return matBGR;
-    }
-    case QImage::Format_RGB888: {
-        cv::Mat mat(image.height(), image.width(), CV_8UC3, const_cast<uchar*>(image.bits()), image.bytesPerLine());
-        cv::Mat matBGR;
-        cv::cvtColor(mat, matBGR, cv::COLOR_RGB2BGR);
-        return matBGR;
-    }
-    case QImage::Format_Indexed8: {
-        return cv::Mat(image.height(), image.width(), CV_8UC1, const_cast<uchar*>(image.bits()), image.bytesPerLine()).clone();
-    }
-    default:
-        return cv::Mat();
-    }
+	switch (image.format()) {
+	case QImage::Format_ARGB32:
+	case QImage::Format_ARGB32_Premultiplied: {
+		cv::Mat mat(image.height(), image.width(), CV_8UC4,
+			const_cast<uchar*>(image.bits()), image.bytesPerLine());
+		return mat.clone(); // 保证内存安全
+	}
+	case QImage::Format_RGB32: {
+		cv::Mat mat(image.height(), image.width(), CV_8UC4,
+			const_cast<uchar*>(image.bits()), image.bytesPerLine());
+		cv::Mat matBGR;
+		cv::cvtColor(mat, matBGR, cv::COLOR_BGRA2BGR);
+		return matBGR;
+	}
+	case QImage::Format_RGB888: {
+		cv::Mat mat(image.height(), image.width(), CV_8UC3,
+			const_cast<uchar*>(image.bits()), image.bytesPerLine());
+		cv::Mat matBGR;
+		cv::cvtColor(mat, matBGR, cv::COLOR_RGB2BGR);
+		return matBGR;
+	}
+	case QImage::Format_Grayscale8:
+	case QImage::Format_Indexed8: {
+		return cv::Mat(image.height(), image.width(), CV_8UC1,
+			const_cast<uchar*>(image.bits()), image.bytesPerLine()).clone();
+	}
+	default:
+		return cv::Mat();
+	}
 }
 
 QImage Mat2QImage(const cv::Mat& mat, bool clone = false)
